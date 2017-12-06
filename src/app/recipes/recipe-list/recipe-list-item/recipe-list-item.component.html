@@ -1,0 +1,15 @@
+<a
+  [routerLink]="[index]"
+  routerLinkActive="active">
+  <span class="recipeItemImage left">
+    <img
+      [src]="recipeItem.imagePath"
+      alt="{{ recipeItem.name }}">
+  </span>
+  <span class="recipeItemContent left">
+    <h4>{{ recipeItem.name }}</h4>
+    <p class="recipeItemDescription">{{ recipeItem.description }}</p>
+  </span>
+  <span class="clear-fix"></span>
+</a>
+<br>

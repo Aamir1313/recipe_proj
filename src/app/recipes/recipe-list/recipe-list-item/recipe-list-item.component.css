@@ -1,0 +1,40 @@
+a {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration:none;
+  display:block;
+  max-width: 378px;
+  background: linear-gradient(to bottom, #ffffff 0%, #F3F3F3 100%);
+}
+
+.active {
+  background: linear-gradient(to bottom, #d1eff7 0%, #a9ced7 100%);
+}
+
+a:hover {
+  background-color: black;
+}
+
+img {
+  max-height: 50px;
+}
+
+.recipeItemDescription {
+  padding-top: 9px;
+}
+
+.recipeItemImage {
+  width: 90px;
+}
+
+.left {
+  float: left;
+  display: block;
+}
+
+.clear-fix {
+  clear: both;
+  display: block;
+}
