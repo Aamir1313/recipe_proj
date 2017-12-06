@@ -1,0 +1,72 @@
+.recipeCard
+{
+  transition: 0.3s;
+  background: #f9c0a4;
+  padding:30px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+.recipeCard:hover
+{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+}
+
+.recipeImg
+{
+  float:left;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  z-index: 100;
+  position: relative;
+}
+
+img
+{
+  max-height: 300px;
+  display: block;
+}
+
+p
+{
+  font-size: 24px;
+}
+
+.recipeInfo
+{
+  float:left;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background:#fff;
+  margin-top: 15px;
+  padding: 2px 16px;
+  padding-left: 40px;
+  z-index:5;
+  color: #615e6e;
+  position: relative;
+  right: 10px;
+}
+
+.recipeName
+{
+  color: #3c3279;
+  font-size: 46px;
+  font-weight: bold;
+  font-family: "Garamond";
+}
+
+.button
+{
+  background: linear-gradient(to bottom, #aca4da 0%, #3c3279 100%);
+  border: none;
+  color: white;
+  padding: 15px 31px;
+  font-size: 18px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button:hover
+{
+  background: linear-gradient(to bottom, #3c3279 0%, #3c3279 100%);
+}

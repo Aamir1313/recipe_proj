@@ -1,7 +1,20 @@
-<p>
-  {{ recipe.name }}
-</p>
-
-<p>
-  {{ recipe.description }}
-</p>
+<div class="recipeCard">
+  <div class="recipeImg">
+    <img src="{{ recipe.imagePath }}" alt="{{ recipe.name }}">
+  </div>
+  <div class="recipeInfo">
+    <p class="recipeName">{{ recipe.name }}</p>
+    <br>
+    <p>{{ recipe.description }}</p>
+    <br>
+    <p *ngFor="let ingredient of recipe.ingredients; let i = index">
+      + {{ ingredient.amount }} {{ ingredient.measurementunit }} {{ ingredient.name }}
+    </p>
+    <br>
+    <p>{{ recipe.instructions }}</p>
+    <br>
+    <div style="text-align:center;">
+      <button class="button">EDIT RECIPE</button>
+    </div>
+  </div>
+</div>
