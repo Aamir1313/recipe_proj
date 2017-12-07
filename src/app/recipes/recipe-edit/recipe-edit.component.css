@@ -1,0 +1,152 @@
+.container
+{
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+.appLabel
+{
+  font-weight: bold;
+  margin-top: 6px;
+  float: left;
+  width: 25%;
+}
+
+.appGroup
+{
+  margin-top: 6px;
+  float: left;
+  width: 75%;
+}
+
+.appRow:after
+{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 840px)
+{
+  .appLabel, .appGroup
+  {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+label
+{
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input, select, textarea
+{
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input
+{
+  min-width: 300px;
+  width: 100%;
+}
+
+.textarea
+{
+  height: 100px;
+  resize: vertical;
+}
+
+.ingredientGroup
+{
+  clear:both;
+  padding-top: 10px;
+}
+
+.ingredientName
+{
+  width: 50%;
+}
+
+.ingredientAmount
+{
+  width: 15%;
+}
+
+.ingredientMeasure
+{
+  width: 20%;
+}
+
+button
+{
+  font-size: 20px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+.red
+{
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+.red:hover
+{
+  background-color: #d43f3a;
+}
+
+.orange
+{
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+.orange:hover
+{
+  background-color: #eea236;
+}
+
+.blue
+{
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+.blue:hover
+{
+  background-color: #2e6da4;
+}
+
+.green
+{
+  color: #fff;
+  background-color: #449d44;
+  border-color: #398439;
+}
+
+.green:hover
+{
+  background-color: #398439;
+}
+
+.removeIngredient
+{
+  float: right;
+  margin-top: 1px;
+}
+
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched
+{
+  border: 1px solid red;
+}

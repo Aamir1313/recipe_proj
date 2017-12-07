@@ -1,0 +1,119 @@
+<div class="container">
+  <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+    <div class="appRow">
+      <div class="appLabel">
+        <label for="name">Name</label>
+      </div>
+      <div class="appGroup">
+        <input
+          type="text"
+          id="name"
+          class="input"
+          formControlName="name">
+      </div>
+    </div>
+
+    <div class="appRow">
+      <div class="appLabel">
+        <label for="imagePath">Image URL</label>
+      </div>
+      <div class="appGroup">
+        <input
+          type="text"
+          id="imagePath"
+          class="input"
+          formControlName="imagePath">
+      </div>
+    </div>
+
+    <div class="appRow">
+      <div class="appLabel">
+        <label for="description">Description</label>
+      </div>
+      <div class="appGroup">
+        <textarea
+          id="description"
+          class="input textarea"
+          formControlName="description"></textarea>
+      </div>
+    </div>
+
+    <div class="appRow">
+      <div class="appLabel">
+        <label for="instructions">Instructions</label>
+      </div>
+      <div class="appGroup">
+        <textarea
+          id="instructions"
+          class="input textarea"
+          formControlName="instructions"></textarea>
+      </div>
+    </div>
+
+    <div class="appRow" formArrayName="ingredients">
+      <div class="appLabel">
+        <label for="ingredients">Ingredients</label>
+      </div>
+      <div
+        class="ingredientGroup"
+        *ngFor="let ingredientCtrl of recipeForm.get('ingredients').controls; let i = index"
+        [formGroupName]="i">
+        <input
+          type="text"
+          formControlName="name"
+          class="ingredientName">
+        <input
+          type="number"
+          formControlName="amount"
+          class="ingredientAmount">
+        <select
+          formControlName="measurementunit"
+          class="ingredientMeasure">
+            <option value=""></option>
+            <option value="tsp">tsp</option>
+            <option value="tbsp">tbsp</option>
+            <option value="fl oz">fl oz</option>
+            <option value="cup">cup</option>
+            <option value="pt">pt</option>
+            <option value="qt">qt</option>
+            <option value="mL">mL</option>
+            <option value="L">L</option>
+            <option value="dL">dL</option>
+            <option value="lbs">lb</option>
+            <option value="oz">oz</option>
+            <option value="mg">mg</option>
+            <option value="g">g</option>
+            <option value="kg">kg</option>
+            <option value="mm">mm</option>
+            <option value="cm">cm</option>
+            <option value="m">m</option>
+            <option value="in">in</option>
+        </select>
+        <button
+          class="red removeIngredient"
+          type="button"
+          (click)="onDeleteIngredient(i)">X</button>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:20px;">
+      <button
+          class="blue"
+          type="button"
+          (click)="onAddIngredient()">Add Ingredient</button>
+      <button
+        class="green"
+        type="submit"
+        [disabled]="!recipeForm.valid">Submit</button>
+      <button
+        class="orange"
+        type="button"
+        (click)="onCancel()">Cancel</button>
+      <button
+        class="red"
+        type="button"
+        (click)="onDeleteRecipe()"
+        *ngIf="this.id > -1">Delete Recipe</button>
+    </div>
+  </form>
+</div>
