@@ -8,23 +8,33 @@ export class RecipeService {
 
   private recipes: Recipe[] = [
     new Recipe(
-      'Tasty Schnitzel',
-      'A super-tasty Schnitzel - just awesome!',
-      'https://upload.wikimedia.org/wikipedia/commons/7/72/Schnitzel.JPG',
+      'Razzy Blue Smoothie',
+      'This naturally sweet and creamy, frosty cold smoothie packs a lot of flavor and a nutritious punch.',
+      'http://atpresentmagazine.com/wp-content/uploads/2017/07/BlueberryMuffinSmoothie-iowagirleats.jpg',
       [
-        new Ingredient('Meat', 1, 'lbs'),
-        new Ingredient('French Fries', 20, 'lbs')
+        new Ingredient('whole almonds', 16, ''),
+        new Ingredient('rolled oats', 0.25, 'cups'),
+        new Ingredient('flaxseed meal', 1, 'tbspn'),
+        new Ingredient('frozen blueberries', 1, 'cups'),
+        new Ingredient('rasberry yogurt', 20, 'cups'),
+        new Ingredient('concord grape juice', 0.25, 'cups'),
+        new Ingredient('1% buttermilk', 1, 'cups')
       ],
-      'do it'
+      'Mix and refrigerate'
     ),
-    new Recipe('Big Fat Burger',
-      'What else you need to say?',
-      'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg',
+    new Recipe('Italian Hazelnut Cookies ',
+      "Two crunchy hazelnut cookie halves, filled with a soft layer of Nutella® hazelnut spread. Is there anything better on a winter's day?",
+      'http://images.media-allrecipes.com/userphotos/560x315/4581406.jpg',
       [
-        new Ingredient('Buns', 2, 'lbs'),
-        new Ingredient('Meat', 1, 'lbs')
+        new Ingredient('ground hazlenuts', 2, 'cups'),
+        new Ingredient('all-purpose flour', 1.66, 'cups'),
+        new Ingredient('confectioner sugar', 1.5, 'cups'),
+        new Ingredient('butter', 0.75, 'cups'),
+        new Ingredient('egg yolks', 2, ''),
+        new Ingredient('salt', 1, 'pinch'),
+        new Ingredient('Nutella hazelnut spread', 0.5, 'cups')
       ],
-      'do more of it'
+      'Mix and bake'
     )
   ];
 
