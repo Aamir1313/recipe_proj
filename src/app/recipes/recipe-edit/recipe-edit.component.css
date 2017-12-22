@@ -92,7 +92,8 @@ button
   border: 1px solid transparent;
 }
 
-button:disabled {
+button:disabled
+{
     opacity: 0.6;
     cursor: not-allowed;
 }

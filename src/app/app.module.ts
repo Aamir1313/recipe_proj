@@ -10,6 +10,8 @@ import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipeListItemComponent } from './recipes/recipe-list/recipe-list-item/recipe-list-item.component';
 import { HomeComponent } from './home/home.component';
+import { SignInComponent } from './signin/signin.component';
+import { SignUpComponent } from './signup/signup.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 import { RecipeService } from './shared/recipe.service';
@@ -23,7 +25,9 @@ import { RecipeService } from './shared/recipe.service';
     RecipeDetailComponent,
     RecipeListItemComponent,
     HomeComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    SignInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
