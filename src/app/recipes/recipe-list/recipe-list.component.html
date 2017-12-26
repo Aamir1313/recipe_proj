@@ -1,15 +1,8 @@
-<div *ngIf="recipesLoaded; else recipesLoading">
-  <app-recipe-list-item
+<app-recipe-list-item
     *ngFor="let recipeItem of recipes; let i = index"
     [recipeItem]="recipeItem"
     [index]="i"
-  ></app-recipe-list-item>
-</div>
-
-<ng-template #recipesLoading>
-  <p>Loading Recipes</p>
-</ng-template>
-
+></app-recipe-list-item>
 <hr><br>
 <div style="text-align:center;">
   <button

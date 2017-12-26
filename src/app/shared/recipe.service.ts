@@ -35,6 +35,7 @@ export class RecipeService {
           }
 
           apiRecipes.push(new Recipe(
+            data[recIdx].recipeId,
             data[recIdx].name,
             data[recIdx].description,
             data[recIdx].url,

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -11,13 +11,10 @@ import { RecipeService } from '../../shared/recipe.service';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit, OnDestroy {
-
   //this ary exists b/c we do not want to directly using recipeservice recipe ary, we use a copy of the js ary
-  recipes: Recipe[];
+  @Input('retRecipes') recipes: Recipe[];
   //used to monitor recipesChanged var
   subscription: Subscription;
-  //used to check if api call is done
-  recipesLoaded: boolean = false;
 
   constructor(private recipeService: RecipeService,
               private router: Router,
@@ -29,16 +26,10 @@ export class RecipeListComponent implements OnInit, OnDestroy {
       .subscribe(
         (recipes: Recipe[]) => {
           this.recipes = recipes;
+          console.log('recipe list component subscription recipes changed');
+          console.log(this.recipes);
         }
       );
-
-    this.recipeService.getRecipes()
-    .subscribe(
-      (apiRecipes: Recipe[]) => {
-        this.recipes = apiRecipes;
-        this.recipesLoaded = true;
-      }
-    );
   }
 
   ngOnDestroy() {
