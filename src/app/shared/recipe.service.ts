@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Http, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs';
 import 'rxjs/Rx';
 
 import { Recipe } from './recipe.model';
@@ -14,23 +15,8 @@ export class RecipeService {
 
   constructor (private http: Http) {}
 
-  getRecipes() {
-    this.pullApiRecipes()
-    .subscribe(//triggers the api call and handles how to deal with the response
-      (apiRecipes: Recipe[]) => {
-          this.setRecipes(apiRecipes);
-      }
-    );
-
-    //returns a copy of the recipe array instead of the array itself
-    if(this.recipes === undefined || this.recipes === null)
-      return this.recipes;
-    else
-      return this.recipes.slice();
-  }
-
   //get recipes via api call and
-  pullApiRecipes() {
+  getRecipes(): Observable<any> {
     return this.http.get('http://www.aamirsheriff.com/recipeapi/public/index.php/api/recipes')
     .map(//transforms api returned data into recipe format
       (response: Response) => {
@@ -58,7 +44,14 @@ export class RecipeService {
             ingrds = [];
         }
 
-        return apiRecipes;
+        //update service recipe ary to data returned from api call
+        this.recipes = apiRecipes;
+
+        //returns a copy of the recipe array instead of the array itself
+        if(this.recipes === undefined || this.recipes === null)
+          return apiRecipes;
+        else
+          return this.recipes.slice();
       }
     );
   }
