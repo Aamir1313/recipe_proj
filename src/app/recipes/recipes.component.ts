@@ -21,11 +21,11 @@ export class RecipesComponent implements OnInit {
       (apiRecipes: Recipe[]) => {
         this.recipes = apiRecipes;
         this.recipesLoaded = true;
-        console.log('response');
+        console.log('get recipes response');
         console.log(this.recipes);
       },
-      (error) => {console.log('errors happened' + error)},
-      () => {console.log('completed')}
+      (error) => {console.log('get recipes errors happened' + error)},
+      () => {console.log('get recipes completed')}
     );
   }
 }

@@ -68,17 +68,62 @@ export class RecipeService {
   }
 
   addRecipe(recipe: Recipe) {
-    this.recipes.push(recipe);
+    this.recipes.push(recipe);//add recipe to js ary
     this.recipesChanged.next(this.recipes.slice());
+
+    return this.http.post('http://www.aamirsheriff.com/recipeapi/public/index.php/api/recipe/add', recipe)
+      .subscribe(
+        (response: Response) => {
+          let body = response;
+          console.log('add recipe next');
+          console.log(body);
+        },
+        (error: any) => {
+          console.log('add recipe errors happened' + error);
+        },
+        () => {
+          console.log('add recipe completed');
+        }
+      );
   }
 
   updateRecipe(index: number, newRecipe: Recipe) {
     this.recipes[index] = newRecipe;
     this.recipesChanged.next(this.recipes.slice());
+
+    return this.http.put('http://www.aamirsheriff.com/recipeapi/public/index.php/api/recipe/update/' + newRecipe.recipeId, newRecipe)
+    .subscribe(
+      (response: Response) => {
+        let body = response;
+        console.log('update recipe next');
+        console.log(body);
+      },
+      (error: any) => {
+        console.log('update recipe errors happened' + error);
+      },
+      () => {
+        console.log('update recipe completed');
+      }
+    );
   }
 
-  deleteRecipe(index: number) {
+  deleteRecipe(index: number, deleteRecipe: Recipe) {
     this.recipes.splice(index, 1);
     this.recipesChanged.next(this.recipes.slice());
+
+    return this.http.delete('http://www.aamirsheriff.com/recipeapi/public/index.php/api/recipe/delete/' + deleteRecipe.recipeId, deleteRecipe)
+    .subscribe(
+      (response: Response) => {
+        let body = response;
+        console.log('delete recipe next');
+        console.log(body);
+      },
+      (error: any) => {
+        console.log('delete recipe errors happened' + error);
+      },
+      () => {
+        console.log('delete recipe completed');
+      }
+    );
   }
 }

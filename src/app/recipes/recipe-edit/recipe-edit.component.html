@@ -1,5 +1,10 @@
 <div class="container">
   <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+    <input
+      type="hidden"
+      id="recipeId"
+      formControlName="recipeId">
+
     <div class="appRow">
       <div class="appLabel">
         <label for="name">Name</label>
@@ -67,7 +72,7 @@
           formControlName="amount"
           class="ingredientAmount">
         <select
-          formControlName="measurementunit"
+          formControlName="measurementUnit"
           class="ingredientMeasure">
             <option value=""></option>
             <option value="tsp">tsp</option>

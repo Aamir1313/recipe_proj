@@ -8,7 +8,7 @@
     <p>{{ recipe.description }}</p>
     <br>
     <p *ngFor="let ingredient of recipe.ingredients; let i = index">
-      + {{ ingredient.amount }} {{ ingredient.measurementunit }} {{ ingredient.name }}
+      + {{ ingredient.amount }} {{ ingredient.measurementUnit }} {{ ingredient.name }}
     </p>
     <br>
     <p>{{ recipe.instructions }}</p>

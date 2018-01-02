@@ -34,6 +34,7 @@ export class RecipeEditComponent implements OnInit {
     let recipeDescription = '';
     let recipeImagePath = '';
     let recipeInstructions = '';
+    let recipeId = null;
     let recipeIngredients = new FormArray([]);//empty set array set
 
     if(this.editMode)
@@ -43,6 +44,7 @@ export class RecipeEditComponent implements OnInit {
       recipeDescription = recipe.description;
       recipeImagePath = recipe.imagePath;
       recipeInstructions = recipe.instructions;
+      recipeId = recipe.recipeId;
 
       if(recipe['ingredients'])//if there are ingredients in the recipe
       {
@@ -56,7 +58,7 @@ export class RecipeEditComponent implements OnInit {
                 Validators.required,
                 Validators.pattern(/^[1-9]+[0-9]*$/)//positive numbers
               ]),
-              'measurementunit': new FormControl(ingredient.measurementunit, Validators.required)
+              'measurementUnit': new FormControl(ingredient.measurementUnit, Validators.required)
             })
           );
         }
@@ -65,6 +67,7 @@ export class RecipeEditComponent implements OnInit {
 
     //reactively tie html form inputs
     this.recipeForm = new FormGroup({
+      'recipeId': new FormControl(recipeId),
       'name': new FormControl(recipeName, Validators.required),
       'imagePath': new FormControl(recipeImagePath, Validators.required),
       'description': new FormControl(recipeDescription, Validators.required),
@@ -81,7 +84,7 @@ export class RecipeEditComponent implements OnInit {
         'amount': new FormControl(null, [
           Validators.required,
           Validators.pattern(/^[1-9]+[0-9]*$/)]),
-        'measurementunit': new FormControl(null, Validators.required)
+        'measurementUnit': new FormControl(null, Validators.required)
       })
     );
   }
@@ -106,7 +109,7 @@ export class RecipeEditComponent implements OnInit {
   }
 
   onDeleteRecipe() {
-    this.recipeService.deleteRecipe(this.id);
+    this.recipeService.deleteRecipe(this.id, this.recipeForm.value);
     this.router.navigate(['/recipes']);
   }
 }
