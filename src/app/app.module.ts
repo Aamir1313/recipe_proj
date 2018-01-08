@@ -16,6 +16,7 @@ import { SignUpComponent } from './signup/signup.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 import { RecipeService } from './shared/recipe.service';
+import { AuthService } from './shared/auth.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { RecipeService } from './shared/recipe.service';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [RecipeService],
+  providers: [RecipeService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

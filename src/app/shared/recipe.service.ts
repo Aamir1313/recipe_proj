@@ -6,6 +6,7 @@ import 'rxjs/Rx';
 
 import { Recipe } from './recipe.model';
 import { Ingredient } from './ingredient.model';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class RecipeService {
@@ -13,7 +14,9 @@ export class RecipeService {
 
   private recipes: Recipe[];
 
-  constructor (private http: Http) {}
+  constructor (private http: Http,
+               private authService: AuthService) {
+  }
 
   //get recipes via api call and
   getRecipes(): Observable<any> {
